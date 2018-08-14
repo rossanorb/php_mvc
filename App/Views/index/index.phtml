@@ -2,6 +2,7 @@ Route: / Controller: indexController Action: index view: index
 
 <br />
 
-<?php foreach($this->view->cars  as $car): ?>
-    <p><?=$car?></p>
+<?php foreach($this->view->users  as $user): ?>
+    <p><?=$user['name']; ?></p>
+    <p><?=$user['email']; ?></p>
 <?php endforeach ?>
