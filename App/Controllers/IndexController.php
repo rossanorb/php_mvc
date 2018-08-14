@@ -1,18 +1,23 @@
 <?php
 
 namespace App\Controllers;
+use Framework\Controller\Action;
 
-class indexController
+class indexController extends Action
 {
+
+
     public function index()
     {
-        echo 'index';
-        exit();
+        $this->view->cars = array('Mustang', 'Ferrari');
+        $this->render("index");
     }
 
     public function contact()
     {
-        echo 'contact';
-        exit();
+        $this->view->cars = array('Mustang', 'Ferrari');
+        $this->render("contact");
     }
+
+
 }
