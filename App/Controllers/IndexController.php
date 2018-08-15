@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Controller\Action;
-use App\Models\User;
-use App\Conn;
+use Framework\DI\Container;
 
 class indexController extends Action
 {
@@ -12,22 +11,17 @@ class indexController extends Action
 
     public function index()
     {
-        echo "<pre>";
-        print_r(get_loaded_extensions());
-        echo "</pre>";
-        
-        var_dump(Conn::getDb());
-        die();
+        $client = Container::getModel("Client");
+        $this->views->clients = $client->fetchAll();
 
-        $user = new User();
-        $this->view->users = $user->fetchAll();
         $this->render("index");
     }
 
     public function contact()
     {
-        $this->view->cars = array('Mustang', 'Ferrari');
-        $this->render("contact");
+        $client = Container::getModel("Client");
+        $this->views->clients = $client->find(2);
+        $this->render("contact",false);
     }
 
 

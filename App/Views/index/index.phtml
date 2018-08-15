@@ -1,8 +1,5 @@
-Route: / Controller: indexController Action: index view: index
-
-<br />
-
-<?php foreach($this->view->users  as $user): ?>
-    <p><?=$user['name']; ?></p>
-    <p><?=$user['email']; ?></p>
+<?php foreach($this->views->clients  as $client): ?>
+    <p><?=$client['Nome']; ?></p>
+    <p><?=$client['Telefone']; ?></p>
+    <hr>
 <?php endforeach ?>
